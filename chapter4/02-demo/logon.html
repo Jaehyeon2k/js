@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        #box {
+            width: 250px;
+            height: 50px;
+            display: flex;
+            justify-content: space-around;
+            
+        }
+        #box > div {
+            border: solid 1px blue;
+        }
+        #sb2 > button{
+            height: 100%;
+        }
+    </style>
+    <script>
+        const logOut = () => {
+            location.href="logon.html";
+        }
+        const chkLogon = () => {
+            var id = document.querySelector("#id");
+            var pwd = document.querySelector("#pwd");
+
+            if(id.value=="" || pwd.value == ""){
+                alert("ID 또는 암호를 입력하세요.");
+                return false;
+            } else if (id.value !="hong"){
+                alert("ID 오류")
+                id.select().focus();
+                return false;
+            } else if (pwd.value !="1234"){
+                alert("Password 오류")
+                pwd.select().focus();
+                return false;
+            } else {
+                //환영,
+                var sb1=document.querySelector("#sb1");
+                sb1.textContent = "홍길동님 환영합니다.";
+                // 버튼이름 변경
+                btn.textContent="Logout";
+                // 이벤트 제거, 설정
+                // btn.removeEventListener("click", chkLogon);
+                btn.addEventListener("click",logOut);
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div id = "box">
+        <div id="sb1">
+            <input id="id" type="text" placeholder="아이디 입력" />
+            <input id="pwd" type="password" value="" />
+            
+        </div>
+        <div id="sb2">
+            <button onclick="chkLogon()" id="btn">Logon</button>
+        </div>
+    </div>
+</body>
+</html>

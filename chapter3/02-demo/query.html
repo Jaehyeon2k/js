@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        div{
+            margin  : 10px;
+            width : 50px;
+            height : 50px;
+            border:solid 2px blue;
+        }
+        
+        .box1{background-color: yellow;}
+        .box1 > p{color: red;}
+        .box2{background-color: orange;}
+        #box3{background-color: red;}   
+        
+    </style>
+    <script>
+        function aaa() {
+            document.querySelector(".box1").style.fontSize="30px";
+            document.querySelector(".box1" > p).style.color="blue";
+        }
+        
+    </script>
+    
+</head>
+<body>
+    <div class="box1">Box1
+        <p>Hello</p>
+    </div>
+    <div class="box2">Box2</div>
+    <div id="box3">Box3</div>
+    <script> aaa();</script>
+</body>
+</html>

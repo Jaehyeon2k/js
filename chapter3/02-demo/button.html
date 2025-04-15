@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        
+        #box{
+            border: solid 1px black;
+            width: 300px;
+            height: 100px;
+        }
+        #btn{
+            width: 300px;
+            border-bottom: solid 1px black;
+            display: flex;
+            justify-content: space-around;
+        }
+        #displaybtn{
+            margin: 10px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function showName(name){
+            const dis = document.querySelector("#displaybtn")
+            dis.textContent= name;
+        }
+        
+        const showAlert=() =>{
+            const dis = document.querySelector("#displaybtn");
+            alert(dis.innerHTML);
+        }
+
+    </script>
+<body>
+    <div id="box">
+        <div id="btn">
+            <button onclick="showName(this.textContent)" id="btn1">버튼1</button>
+            <button onclick="showName(this.textContent)" id="btn2">버튼2</button> 
+            <button onclick="showName(this.textContent)" id="btn3">버튼3</button> 
+        </div>
+
+        <div onclick="showAlert()" id="displaybtn">클릭 버튼 표시</div>
+    </div>
+    
+    
+</body>
+</html>
