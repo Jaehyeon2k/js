@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    자기소개 페이지
+<h1 id="introTitle">나의 소개</h1>
+<input type="color" id="bgInput" placeholder="배경색 선택">
+<input type="color" id="textInput" placeholder="글자색 선택">
+<button id="addHobby">취미 추가</button>
+
+<div id="hobbyBox"></div>
+
+<script>
+// 요소 가져오기
+const introTitle = document.getElementById('introTitle');
+const bgInput = document.getElementById('bgInput');
+const textInput = document.getElementById('textInput');
+const addHobby = document.getElementById('addHobby');
+const hobbyBox = document.getElementById('hobbyBox');
+
+// input 이벤트로 배경색 변경
+bgInput.addEventListener('input', () => {
+    introTitle.style.backgroundColor = bgInput.value;
+});
+
+// input 이벤트로 글자색 변경
+textInput.addEventListener('input', () => {
+    introTitle.style.color = textInput.value;
+});
+
+// 버튼 클릭하면 박스 안에 태그(취미) 삽입
+addHobby.addEventListener('click', () => {
+    const newHobby = document.createElement('p'); // p 태그 만들기
+    newHobby.innerText = "취미: 코딩하기 🎮";   // 텍스트 추가
+    hobbyBox.appendChild(newHobby);              // hobbyBox에 추가
+});
+</script>
+
+
+<!-- logon 페이지
+<input type="text" id="userid" placeholder="아이디">
+<input type="password" id="userpw" placeholder="비밀번호">
+<button id="logonBtn">로그인</button>
+
+<p id="logonMessage"></p>
+
+<script>
+// 요소 가져오기
+const userid = document.getElementById('userid');
+const userpw = document.getElementById('userpw');
+const logonBtn = document.getElementById('logonBtn');
+const logonMessage = document.getElementById('logonMessage');
+
+// 버튼 클릭 시 실행
+logonBtn.addEventListener('click', () => {
+    const idValue = userid.value;
+    const pwValue = userpw.value;
+
+    // if문으로 길이 검사
+    if (idValue.length < 4 || idValue.length > 12) {
+        logonMessage.innerText = "아이디는 4~12글자여야 합니다.";
+    } else if (pwValue.length < 6 || pwValue.length > 15) {
+        logonMessage.innerText = "비밀번호는 6~15글자여야 합니다.";
+    } else {
+        logonMessage.innerText = "로그인 성공!";
+    }
+});
+</script>
+
+
+박스 칠하기
+<input type="color" id="colorInput">
+<button id="saveColorBtn">색 저장</button>
+
+<div id="palette"></div>
+
+<div id="paintBox" style="width:100px; height:100px; background:lightgray; margin-top:20px;"></div>
+
+<script>
+// 요소 가져오기
+const colorInput = document.getElementById('colorInput');
+const saveColorBtn = document.getElementById('saveColorBtn');
+const palette = document.getElementById('palette');
+const paintBox = document.getElementById('paintBox');
+
+// 저장된 색상 배열
+let savedColors = [];
+
+// 저장 버튼 클릭하면
+saveColorBtn.addEventListener('click', () => {
+    const pickedColor = colorInput.value;
+    savedColors.push(pickedColor);
+
+    // 색을 보여줄 작은 div 생성
+    const colorDiv = document.createElement('div');
+    colorDiv.style.backgroundColor = pickedColor;
+    colorDiv.style.width = "30px";
+    colorDiv.style.height = "30px";
+    colorDiv.style.display = "inline-block";
+    colorDiv.style.margin = "5px";
+    colorDiv.style.cursor = "pointer";
+
+    // 클릭하면 박스에 색 적용
+    colorDiv.addEventListener('click', () => {
+        paintBox.style.backgroundColor = pickedColor;
+    });
+
+    // 더블클릭하면 색 div 삭제
+    colorDiv.addEventListener('dblclick', () => {
+        palette.removeChild(colorDiv);
+    });
+
+    palette.appendChild(colorDiv);
+});
+</script>
+
+
+앨범 페이지
+
+<div id="album"></div>
+
+<img id="bigImage" style="width:300px; margin-top:20px; display:block;">
+
+<script>
+// 이미지와 설명 배열
+const images = [
+    { src: 'img1.jpg', desc: '멋진 바다' },
+    { src: 'img2.jpg', desc: '푸른 산' },
+    { src: 'img3.jpg', desc: '예쁜 꽃' }
+];
+
+// 요소 가져오기
+const album = document.getElementById('album');
+const bigImage = document.getElementById('bigImage');
+
+// 배열을 순회하며 작은 이미지 만들기
+images.forEach(item => {
+    const img = document.createElement('img');
+    img.src = item.src;       // 작은 이미지 경로
+    img.alt = item.desc;       // 설명
+    img.style.width = "100px";
+    img.style.margin = "5px";
+    img.style.cursor = "pointer";
+
+    // 작은 이미지를 클릭하면
+    img.addEventListener('click', () => {
+        bigImage.src = item.src;        // 큰 이미지 src 변경
+        bigImage.alt = item.desc;        // alt 변경
+        bigImage.style.border = "3px solid black"; // 스타일 변경
+    });
+
+    album.appendChild(img);
+});
+</script>
+
+</body>
+</html> -->

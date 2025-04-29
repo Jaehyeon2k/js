@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>자기소개 페이지</title>
+  <style>
+    #introBox {
+      padding: 20px;
+      border: 1px solid #ccc;
+      width: 300px;
+      margin-bottom: 20px;
+    }
+    #hobbyBox p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 소개 박스 -->
+  <div id="introBox">
+    <h2 id="myName">안녕하세요! 저는 홍길동입니다.</h2>
+  </div>
+
+  <!-- 배경색/글자색 변경 input -->
+  <label>배경색:
+    <input type="color" id="bgColorInput">
+  </label>
+  <label>글자색:
+    <input type="color" id="textColorInput">
+  </label>
+
+  <br><br>
+
+  <!-- 취미 입력창 + 추가 버튼 -->
+  <input type="text" id="hobbyInput" placeholder="취미를 입력하세요">
+  <button id="addHobbyBtn">취미 추가</button>
+
+  <!-- 취미 목록이 들어갈 박스 -->
+  <div id="hobbyBox"></div>
+
+  <script>
+    // 요소 가져오기
+    const introBox = document.getElementById('introBox');
+    const myName = document.getElementById('myName');
+    const bgColorInput = document.getElementById('bgColorInput');
+    const textColorInput = document.getElementById('textColorInput');
+    const hobbyInput = document.getElementById('hobbyInput');
+    const addHobbyBtn = document.getElementById('addHobbyBtn');
+    const hobbyBox = document.getElementById('hobbyBox');
+
+    // 배경색 변경
+    bgColorInput.addEventListener('input', function () {
+      introBox.style.backgroundColor = bgColorInput.value;
+    });
+
+    // 글자색 변경
+    textColorInput.addEventListener('input', function () {
+      myName.style.color = textColorInput.value;
+    });
+
+    // 취미 추가 버튼 클릭
+    addHobbyBtn.addEventListener('click', function () {
+      const hobbyText = hobbyInput.value.trim(); // 입력값 가져오기
+
+      if (hobbyText !== "") {
+        const newHobby = document.createElement('p'); // <p> 태그 생성
+        newHobby.innerText = "취미: " + hobbyText;    // 텍스트 넣기
+        hobbyBox.appendChild(newHobby);               // 추가
+        hobbyInput.value = ""; // 입력창 초기화
+      } else {
+        alert("취미를 입력하세요!");
+      }
+    });
+  </script>
+
+</body>
+</html>
